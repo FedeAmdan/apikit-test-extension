@@ -16,31 +16,34 @@ public class ConfigOneOperations {
     public void operationPreRouter(@Config ConfigOne config, String infoToLog)
     {
         String requestTaskToken;
-
+        String log= "";
         if (config.taskTokenInThread.get() != null) {
             requestTaskToken = config.taskTokenInThread.get();
-            logger.info("request: token WAS NOT empty");
+            log += "=== Request: token WAS NOT empty";
         } else {
             requestTaskToken = generateTaskToken();
             config.taskTokenInThread.set(requestTaskToken);
-            logger.info("request: token WAS empty");
+            log += "=== Request: token WAS empty";
         }
-        logger.info("request token: " + requestTaskToken);
-        logger.info("request info to log: " + infoToLog);
+        log += " // token: " + requestTaskToken;
+        log += " // info to log: " + infoToLog;
+        logger.info(log);
     }
 
     public void operationPostRouter(@Config ConfigOne config, String infoToLog)
     {
         String responseTaskToken;
+        String log = "";
         if (config.taskTokenInThread.get() != null) {
             responseTaskToken = config.taskTokenInThread.get();
-            logger.info("response: token in thread WAS NOT empty");
+            log += "=== Response: token in thread WAS NOT empty";
         } else {
             responseTaskToken = generateTaskToken();
-            logger.info("response: token in thread WAS empty");
+            log += "=== Response: token in thread WAS empty";
         }
-        logger.info("response token: " + responseTaskToken);
-        logger.info("response info to log: " + infoToLog);
+        log += " // token: " + responseTaskToken;
+        log += " // info to log: " + infoToLog;
+        logger.info(log);
 
     }
 
