@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:apikit-test="http://www.mulesoft.org/schema/mule/apikit-test"
+
+      xmlns="http://www.mulesoft.org/schema/mule/core"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+               http://www.mulesoft.org/schema/mule/apikit-test http://www.mulesoft.org/schema/mule/apikit-test/current/mule-apikit-test.xsd">
+
+    <apikit-test:config name="test"/>
+
+
+    <flow name="flowtest">
+        <apikit-test:operation-pre-router infoToLog="hello"/>
+        <set-payload value="test payload"/>
+        <apikit-test:operation-pre-router infoToLog="bye"/>
+
+    </flow>
+
+</mule>
