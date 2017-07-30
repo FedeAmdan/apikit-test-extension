@@ -13,7 +13,7 @@ import static java.lang.Thread.currentThread;
 public class ConfigOneOperations {
     protected static final Logger logger = LoggerFactory.getLogger(ConfigOneOperations.class);
 
-    public void operationPreRouter(@Config ConfigOne config, String infoToLog)
+    public void operationPreRouter(@Config ConfigOne config)
     {
         String requestTaskToken;
         String log= "";
@@ -26,11 +26,10 @@ public class ConfigOneOperations {
             log += "=== Request: token WAS empty";
         }
         log += " // token: " + requestTaskToken;
-        log += " // info to log: " + infoToLog;
         logger.info(log);
     }
 
-    public void operationPostRouter(@Config ConfigOne config, String infoToLog)
+    public void operationPostRouter(@Config ConfigOne config)
     {
         String responseTaskToken;
         String log = "";
@@ -42,7 +41,6 @@ public class ConfigOneOperations {
             log += "=== Response: token in thread WAS empty";
         }
         log += " // token: " + responseTaskToken;
-        log += " // info to log: " + infoToLog;
         logger.info(log);
 
     }

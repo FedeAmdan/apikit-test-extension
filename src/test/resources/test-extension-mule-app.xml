@@ -10,9 +10,9 @@
 
 
     <flow name="flowtest">
-        <apikit-test:operation-pre-router infoToLog="hello"/>
+        <apikit-test:operation-pre-router/>
         <set-payload value="test payload"/>
-        <apikit-test:operation-pre-router infoToLog="bye"/>
+        <apikit-test:operation-pre-router/>
 
     </flow>
 
